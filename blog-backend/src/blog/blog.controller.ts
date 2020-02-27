@@ -2,13 +2,13 @@ import { Controller, Get, Res, HttpStatus, Param, NotFoundException, Post, Body,
 import { BlogService } from './blog.service';
 import { CreatePostDTO } from './dto/create-post.dto';
 import { ValidateObjectId } from '../shared/pipes/validate-object-id.pipes';
-
-
+import { ApiTags } from '@nestjs/swagger'; 
+@ApiTags('博客模块')
 @Controller('blog')
 export class BlogController {
 
     constructor(private blogService: BlogService) { }
-
+   
     // Fetch all posts
     @Get('posts')
     async getPosts(@Res() res) {
